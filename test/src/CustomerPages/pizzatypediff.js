@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment, useState } from "react";
 import OrderInformation from "./orderinfo";
 import LOGO from "../PizzaToppings/logo.png";
-<img alt="Spin N Stone Logo" className="logo" src={LOGO} />
+
 const HandleClickPep = async (e) => {
     e.preventDefault();
     await fetch(`http://localhost:5001/createSetPizza/${1}/${"Pepperoni"}`);
