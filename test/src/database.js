@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const dotenv = require('dotenv').config();
 // Create express app
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 
 app.use(cors());
