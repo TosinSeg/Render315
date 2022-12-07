@@ -204,7 +204,7 @@ app.get('/createSetPizza/:numToppings/:pizzaName', function (req, res) {
         pizza.toppings.push("Pepperoni");
     }
     console.log(pizza.toppings[0]);
-    const pushPizza = structuredClone(pizza);
+    const pushPizza = JSON.parse(JSON.stringify(pizza));
     pizzaList.push(pushPizza);
     refreshPizza();
     res.json(JSON.stringify(true));
@@ -256,7 +256,7 @@ app.get('/removeLastTopping', function (req, res) {
 
 /** This function will add the pizza to your order, essentially adding an item to your cart */
 app.get('/addToOrder', function (req, res) {
-    const pushPizza = structuredClone(pizza);
+    const pushPizza = JSON.parse(JSON.stringify(pizza));
     if (pizza.pizzaName != "") {
         pizzaList.push(pushPizza);
         refreshPizza();
