@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from "react";
 import Pizzabuilder from "./pizzabuilder";
+import translateText from "../translate";
 const Removetopping = async (e) => {
     e.preventDefault();
     await fetch(`http://localhost:5001/removeLastTopping`)
@@ -7,7 +8,7 @@ const Removetopping = async (e) => {
 
 }
 
-function Seasonal() {
+function Seasonal(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
@@ -61,25 +62,35 @@ function Seasonal() {
         OrderInfo();
 
     }, [response])
-    setTimeout(() => { console.log("Waiting"); }, 3000);
+    const [test, setTest] = useState(["Select Seasonal Toppings: ", "Remove Last Topping", "Back To Menu", "Add More Toppings", "Next", "*Note: Seasonal Toppings Will Not Appear On Pizza*"]);
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = [];
+            for (let i = 0; i < test.length; ++i) {
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+    }, [props.lang])
     let pizza = <Pizzabuilder />
-    return (<Fragment><h1 className="pageTitle-topping">Select Seasonal Toppings:</h1>
+    return (<Fragment><h1 className="pageTitle-topping">{test[0]}</h1>
 
-        <div className="grid-container-topping3" id="seasonalButtons"><button className="grid-item-topping3" onClick={Removetopping}>Remove Last Topping</button></div>
+        <div className="grid-container-topping3" id="seasonalButtons"><button className="grid-item-topping3" onClick={Removetopping}>{test[1]}</button></div>
         <div>
             <a href="/pizzatypediff">
-                <button className="backButton">Back To Menu</button>
+                <button className="backButton">{test[2]}</button>
             </a>
             <a href="/topping">
-                <button className="backButton2"> Add More Toppings</button>
+                <button className="backButton2"> {test[3]}</button>
             </a>
 
             <a href="/sauce">
-                <button className="nextButton">Next</button>
+                <button className="nextButton">{test[4]}</button>
             </a>
         </div>
         <p className="pizzaInfo">{response}</p>
-        <p className="disclaimer">*Note: Seasonal Toppings Will Not Appear On Pizza*</p>
+        <p className="disclaimer">{test[5]}</p>
         <p className="pizzaBuilder">{pizza}</p>
     </Fragment>);
 }

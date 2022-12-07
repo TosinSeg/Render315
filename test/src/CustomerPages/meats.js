@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from "react";
 import Pizzabuilder from "./pizzabuilder";
+import translateText from "../translate";
 const Pepperoni = async (e) => {
     e.preventDefault();
     if (await fetch(`http://localhost:5001/addTopping/${"Pepperoni"}`)
@@ -81,7 +82,7 @@ const Removetopping = async (e) => {
 }
 
 
-function Meats() {
+function Meats(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
@@ -95,7 +96,18 @@ function Meats() {
         setLoading(false);
 
     }, [response])
-    let pizza = <Pizzabuilder />
+    const [test, setTest] = useState(["Select Meats: ", "Pepperoni", "Black Forest Ham", "Italian Sausage", "Meatballs", "Salami", "Bacon", "Smoked Chicken", "Remove Last Topping", "Back To Menu", " Add More Toppings", "Next", "Your Current Pizza:"]);
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = [];
+            for (let i = 0; i < test.length; ++i) {
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+    }, [props.lang])
+    let pizza = <Pizzabuilder lang={props.lang} />
     return (<Fragment><h1 className="pageTitle-topping">Select Meats:</h1>
         <div className="grid-container-toppingitems">
             <button className="grid-item-toppingitems" onClick={Pepperoni}>Pepperoni</button>
