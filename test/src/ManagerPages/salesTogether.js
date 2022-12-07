@@ -1,6 +1,7 @@
-import React, { Component , useState } from 'react';
+import React, { Component , useState, useEffect } from 'react';
 import Table from '../components/table';
 import Navbar from './navbar';
+import translateText from '../translate';
 
 
 function SalesTogether(props) {
@@ -8,8 +9,23 @@ function SalesTogether(props) {
     const [togetherTable, setTogetherTable] = useState([]);
     const [beginDate, setBeginDate] = useState('Start');
     const [endDate, setEndDate] = useState('End');
+    const [test, setTest] = useState(["Sales Together Report", "See the top selling item pairs over a specific time period", "Generate Report", "Enter a start and end date to generate a report for that period" ,"Start Date:", "End Date:", "Submit"]);
 
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
+    
     const salesTogether = async (e) => {
+
+        
         e.preventDefault();
         let salesTogether1 = []
         const response = await fetch(`http://localhost:5001/salesTogether/${beginDate}/${endDate}`);
@@ -190,23 +206,23 @@ function SalesTogether(props) {
 
     return ( 
         <React.Fragment>
-            <Navbar/>
+            <Navbar lang={props.lang}/>
             <div class='heading'>
-                <h1>Sales Together Report</h1>
-                <p>See the top selling item pairs over a specific time period</p><hr></hr>
+                <h1>{test[0]}</h1>
+                <p>{test[1]}</p><hr></hr>
             </div>
             <br></br>
             <Table data={togetherTable} column={props.column}/>
             <br></br><br></br>
-            <h1>Generate Report</h1>
-            <p>Enter a start and end date to generate a report for that period</p>
+            <h1>{test[2]}</h1>
+            <p>{test[3]}</p>
             <form onSubmit={console.log('submit')}>
-                <label for="beginDate">Start Date:</label>
+                <label for="beginDate">{test[4]}</label>
                 <input type="text" className='form-control1' id='beginDate' value={beginDate} onChange={e => setBeginDate(e.target.value)}/>
-                <label for="endDate">End Date:</label>
+                <label for="endDate">{test[5]}</label>
                 <input type="text" className='form-control1' id='endDate' value={endDate} onChange={e => setEndDate(e.target.value)}/>
                 <br></br><br></br>
-                <button onClick={salesTogether} class='button'>Submit</button>
+                <button onClick={salesTogether} class='button'>{test[6]}</button>
             </form>
         </React.Fragment>
 

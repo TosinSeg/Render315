@@ -109,7 +109,7 @@ function Trends(props) {
     }
     return (
         <React.Fragment>
-            <Navbar/>
+            <Navbar lang={props.lang}/>
             <div class="heading">
                 <h1>{test[0]}</h1>
                 <p>{test[1]}</p>
