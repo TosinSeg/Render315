@@ -66,7 +66,7 @@ function Checkout(props) {
         </div>
 
         <div className="order-container">
-            <OrderInformation lang={props.lang} />
+            <OrderInformation />
         </div>
         <p className="priceDisplay">{test[7]}{price}</p>
     </Fragment>);
