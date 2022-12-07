@@ -1,3 +1,4 @@
+/* global google */
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
@@ -8,6 +9,7 @@ import './app.css'
 
 
 const element = <React.Fragment>
+
 <App/>
 </React.Fragment>;
 

@@ -1,3 +1,4 @@
+/* global google */
 import React, { useEffect, useState } from "react";
 import Table from './components/table.jsx'
 import Navbar from "./navbar.js";
@@ -23,28 +24,82 @@ import Topping from "./CustomerPages/topping.js";
 import ToppingMulti from "./CustomerPages/topping-multi.js";
 import Veggies from "./CustomerPages/veggies.js";
 import LocationGuide from "./CustomerPages/locationguide"
-import Directions from "./CustomerPages/directions.js"
-import ServerHome from "./ServerPages/ServerHome.js"
-
+import Directions from "./CustomerPages/directions.js";
+import ServerHome from "./ServerPages/ServerHome.js";
+import jwt_decode from "jwt-decode";
+import NavbarAuth from "./auth/navbarAuth.js";
+//import LangSelect from "./components/langSelect.js";
+//import { response } from "express";
+import translateText from "./translate.js";
 //const database = require("./database");
 
+
 function App() {
-
-    const [inventoryTable, setInventoryTable] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
-
+    const [show, setShow] = useState(true);
+    const [language, setLanguage] = useState('en');
+    const [ user, setUser ] = useState({});
+    const [inventoryTable, setInventoryTable] = useState([1,1,1,1,1,1,1,1,1]);
     const [restockTable, setRestockTable] = useState([]);
     const [excessTable, setExcessTable] = useState([]);
     const [menuTable, setMenuTable] = useState([1, 1, 1, 1, 1, 1, 1]);
     const [togetherTable, setTogetherTable] = useState([]);
     const [salesTrendsTable, setSalesTrendsTable] = useState([]);
     const [employeeTable, setEmployeeTable] = useState([]);
+    
+
+    const langs = {'English':'en', 'Spanish':'es', 'Italian':'it', 'Chinese':'zh-CN', 'German':'de'};
+
+    function handleCallbackResponse(response){
+        console.log("Encoded JWT Id token " + response.credential);
+        var userObject = jwt_decode(response.credential);
+        setUser(userObject);
+        document.getElementById("signInDiv").hidden = true; 
+    }
+    
+    useEffect(() => {
+        const googleScript = document.getElementById("googleA");
+        const interval = setInterval(() => {
+            setUser({});
+            if (window.google){
+                clearInterval(interval);
+                google.accounts.id.initialize({
+                    client_id: "1014333270008-g8ajq98lbek1dip8pmv3q1er4k91apjk.apps.googleusercontent.com",
+                    callback: handleCallbackResponse,
+                });
+        
+                google.accounts.id.renderButton(document.getElementById("signInDiv"),
+                    {theme: "outline", size: "large"}
+                );
+        
+                //google.accounts.id.prompt();
+            }
+    
+            googleScript.addEventListener('load', () => {
+                // Patiently waiting to do the thing 
+            });
+        }, 500);
+        // while (!window.google) {
+        //     interval = ;
+        // }
+        
+        
+        return () => clearInterval(interval);
+    }, [])
+
+    function handleSignOut(e) {
+        setUser({});
+        console.log("signed out");
+        document.getElementById("signInDiv").hidden = false;
+    }
 
 
-    // useEffect[(() => {
-    //     database.getInventory.then(res => setInventoryTable(res));
-    //     database.getMenu.then(res => setMenuTable(res));
-    //     database.restockReport(res => setRestockTable(res));
-    // }, [])]
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setLanguage(langs[e.target.value]);
+        console.log("here");
+        console.log(e.target.value);
+    }
 
     const invColumn = [
         { heading: 'ID', key: 1, value: "id" },
@@ -98,7 +153,7 @@ function App() {
     let component
     switch (window.location.pathname) {
         case "/":
-            component = <Navbar />
+            component = (Object.keys(user).length==0 ? <Navbar/> : <NavbarAuth/>)
             break
         case "/manager":
             component = <ManagerHome />
@@ -113,7 +168,7 @@ function App() {
             component = <ManagerHome />
             break
         case "/menu":
-            component = <Menu data={menuTable} column={menuColumn} />
+            component = <Menu data={menuTable} column={menuColumn} lang={language}/>
             break
         case "/restock":
             component = <Restock data={inventoryTable} column={invColumn} />
@@ -178,6 +233,16 @@ function App() {
     }
     return (
         <React.Fragment>
+            <div id="signInDiv"></div>
+            <div className='dropdown'>
+                Choose Language
+
+                {show && <select onChange={(e) => handleClick(e)}>
+                    {Object.keys(langs).map((lang, val) => <option>{lang}</option>)}
+                </select>}
+            </div> 
+            {Object.keys(user).length != 0 &&  <button onClick={(e) => handleSignOut(e)}>Sign Out</button>}
+            {user && <h3>{user.name}</h3>}
             {component}
         </React.Fragment>
 

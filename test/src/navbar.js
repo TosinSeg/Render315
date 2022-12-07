@@ -4,15 +4,8 @@ function Navbar() {
     return ( <nav className='nav'>
         <ul>
             <li>
-              <CustomLink href="/manager">Manager</CustomLink> 
-            </li>
-            <li>
               <CustomLink href='/customer'>Customer</CustomLink>
             </li>
-            <li>
-              <CustomLink href='/server'>Server</CustomLink>
-            </li>
-          
         </ul>
         
         <div class='home-body'>

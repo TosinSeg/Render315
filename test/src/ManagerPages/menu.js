@@ -1,9 +1,11 @@
 import React, { Component, useState, useEffect, Fragment } from 'react';
 import Table from '../components/table';
 import Navbar from './navbar';
+import translateText from '../translate';
 
 function Menu(props) {
     const [menu, setMenu] = useState([]);
+    const [test, setTest] = useState("test");
     const [id, setId] = useState(0);
     const [count, setCount] = useState(0);
     const [newCost, setNewCost] = useState(0);
@@ -50,17 +52,21 @@ function Menu(props) {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),
         });
+        
         await getMenu();
     }
 
     useEffect(() => {
         getMenu();
-    }, [])
+        console.log(props.lang);
+        translateText(test, props.lang).then(res => setTest(res));
+    }, [props.lang])
 
     return (
         <Fragment> 
             <Navbar/>
             <div class='heading'>
+                <h1>{test}</h1>
                 <h1>Menu</h1>
                 <p>Add new seasonal ingredients, add a new item to the menu, or change the price of a current menu item</p>
                 <hr></hr>
