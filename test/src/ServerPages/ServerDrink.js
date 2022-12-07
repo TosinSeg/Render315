@@ -11,8 +11,8 @@ const ServerDrink = (props) => {
     <div>
       <div id="OrderButtonMenu">
         <div id="Drink">
-          <label htmlFor="drinks">Drink:</label>
-          <select name="drinks" id="drinks">
+          <label htmlFor="drinks" class="dropdown-choices-label">Drink:</label>
+          <select name="drinks" id="drinks" class="dropdown-choices">
             <option value="no_drink">--Select An Option--</option>
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
@@ -23,7 +23,7 @@ const ServerDrink = (props) => {
       <div id="OrderList">
       </div>
       <form id="BottomRow" onSubmit={handleSubmit}>
-        <button type="submit">Add to Order</button>
+        <button type="submit" id="AddToOrder">Add to Order</button>
       </form>
     </div>
   )

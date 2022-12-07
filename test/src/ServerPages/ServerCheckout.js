@@ -16,7 +16,7 @@ const ServerCheckout = (props) => {
     }
 
     return (
-        <div>
+        <div class="dropdown-choices">
             <form id="Dining Dollars" onSubmit={handleSubmit}>
                 <button type="submit">Dining Dollars</button>
             </form>
