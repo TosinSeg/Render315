@@ -159,7 +159,7 @@ function App() {
             component = <ManagerHome />
             break
         case "/customer":
-            component = <Pizzatype />
+            component = <Pizzatype lang={language} />
             break
         case "/server":
             component = <ServerHome />
