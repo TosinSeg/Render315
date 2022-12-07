@@ -37,43 +37,43 @@ import translateText from "./translate.js";
 function App() {
     const [show, setShow] = useState(true);
     const [language, setLanguage] = useState('en');
-    const [ user, setUser ] = useState({});
-    const [inventoryTable, setInventoryTable] = useState([1,1,1,1,1,1,1,1,1]);
+    const [user, setUser] = useState({});
+    const [inventoryTable, setInventoryTable] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
     const [restockTable, setRestockTable] = useState([]);
     const [excessTable, setExcessTable] = useState([]);
     const [menuTable, setMenuTable] = useState([1, 1, 1, 1, 1, 1, 1]);
     const [togetherTable, setTogetherTable] = useState([]);
     const [salesTrendsTable, setSalesTrendsTable] = useState([]);
     const [employeeTable, setEmployeeTable] = useState([]);
-    
 
-    const langs = {'English':'en', 'Spanish':'es', 'Italian':'it', 'Chinese':'zh-CN', 'German':'de'};
 
-    function handleCallbackResponse(response){
+    const langs = { 'English': 'en', 'Spanish': 'es', 'Italian': 'it', 'Chinese': 'zh-CN', 'German': 'de' };
+
+    function handleCallbackResponse(response) {
         console.log("Encoded JWT Id token " + response.credential);
         var userObject = jwt_decode(response.credential);
         setUser(userObject);
-        document.getElementById("signInDiv").hidden = true; 
+        document.getElementById("signInDiv").hidden = true;
     }
-    
+
     useEffect(() => {
         const googleScript = document.getElementById("googleA");
         const interval = setInterval(() => {
             setUser({});
-            if (window.google){
+            if (window.google) {
                 clearInterval(interval);
                 google.accounts.id.initialize({
                     client_id: "1014333270008-g8ajq98lbek1dip8pmv3q1er4k91apjk.apps.googleusercontent.com",
                     callback: handleCallbackResponse,
                 });
-        
+
                 google.accounts.id.renderButton(document.getElementById("signInDiv"),
-                    {theme: "outline", size: "large"}
+                    { theme: "outline", size: "large" }
                 );
-        
+
                 //google.accounts.id.prompt();
             }
-    
+
             googleScript.addEventListener('load', () => {
                 // Patiently waiting to do the thing 
             });
@@ -81,8 +81,8 @@ function App() {
         // while (!window.google) {
         //     interval = ;
         // }
-        
-        
+
+
         return () => clearInterval(interval);
     }, [])
 
@@ -153,7 +153,7 @@ function App() {
     let component
     switch (window.location.pathname) {
         case "/":
-            component = (Object.keys(user).length==0 ? <Navbar/> : <NavbarAuth/>)
+            component = (Object.keys(user).length == 0 ? <Navbar /> : <NavbarAuth />)
             break
         case "/manager":
             component = <ManagerHome />
@@ -168,7 +168,7 @@ function App() {
             component = <ManagerHome />
             break
         case "/menu":
-            component = <Menu data={menuTable} column={menuColumn} lang={language}/>
+            component = <Menu data={menuTable} column={menuColumn} lang={language} />
             break
         case "/restock":
             component = <Restock data={inventoryTable} column={invColumn} />
@@ -192,43 +192,43 @@ function App() {
             component = <Employee data={employeeTable} column={employeeCols} />
             break
         case "/pizzatype":
-            component = <Pizzatype />
+            component = <Pizzatype lang={language} />
             break
         case "/topping":
-            component = <Topping />
+            component = <Topping lang={language} />
             break
         case "/pizzatypeCanceled":
-            component = <PizzatypeCancel />
+            component = <PizzatypeCancel lang={language} />
             break
         case "/pizzatypediff":
-            component = <Pizzatypediff />
+            component = <Pizzatypediff lang={language} />
             break
         case "/topping-multi":
-            component = <ToppingMulti />
+            component = <ToppingMulti lang={language} />
             break
         case "/topping-one":
-            component = <ToppingOne />
+            component = <ToppingOne lang={language} />
             break
         case "/veggies":
-            component = <Veggies />
+            component = <Veggies lang={language} />
             break
         case "/drizzle":
-            component = <Drizzle />
+            component = <Drizzle lang={language} />
             break
         case "/meats":
-            component = <Meats />
+            component = <Meats lang={language} />
             break
         case "/sauce":
-            component = <Sauce />
+            component = <Sauce lang={language} />
             break
         case "/seasonal":
-            component = <Seasonal />
+            component = <Seasonal lang={language} />
             break
         case "/checkout":
-            component = <Checkout />
+            component = <Checkout lang={language} />
             break
         case "/locationguide":
-            component = <LocationGuide />
+            component = <LocationGuide lang={language} />
             break
     }
     return (
@@ -240,8 +240,8 @@ function App() {
                 {show && <select onChange={(e) => handleClick(e)}>
                     {Object.keys(langs).map((lang, val) => <option>{lang}</option>)}
                 </select>}
-            </div> 
-            {Object.keys(user).length != 0 &&  <button onClick={(e) => handleSignOut(e)}>Sign Out</button>}
+            </div>
+            {Object.keys(user).length != 0 && <button onClick={(e) => handleSignOut(e)}>Sign Out</button>}
             {user && <h3>{user.name}</h3>}
             {component}
         </React.Fragment>
