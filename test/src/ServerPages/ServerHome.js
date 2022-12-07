@@ -4,6 +4,16 @@ import Order from "../components/Order";
 import MainButtonMenu from "../components/MainButtonMenu";
 import "../components/style.css";
 
+function CustomLink({ href, children, ...props }) {
+  const path = window.location.pathname;
+  console.log(path);
+  return (
+    <li className={path === href ? "active" : ""}>
+      <a href={href} {...props} >{children}</a>
+    </li>
+  )
+}
+
 
 
 function ServerHome() {
