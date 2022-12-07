@@ -40,23 +40,23 @@ const ServerMultiTopping = (props) => {
     <div>
       <div id="OrderButtonMenu">
         <div id="Sauce">
-          <label htmlFor="sauces">Sauce:</label>
-          <select name="sauces" id="sauces">
+          <label htmlFor="sauces" class="dropdown-choices-label">Sauce:</label>
+          <select name="sauces" id="sauces" class="dropdown-choices">
             <option value="Red Sauce" selected>Red Sauce</option>
             <option value="White Sauce">White Sauce</option>
             <option value="Zesty Red Sauce">Zesty Red Sauce</option>
           </select>
         </div>
         <div id="Crust">
-          <label htmlFor="crusts">Crust:</label>
-          <select name="crusts" id="crusts">
+          <label htmlFor="crusts" class="dropdown-choices-label">Crust:</label>
+          <select name="crusts" id="crusts" class="dropdown-choices">
             <option value="Regular Crust" selected>Regular</option>
             <option value="Cauliflower Crust">Cauliflower</option>
           </select>
         </div>
         <div id="Meat" class="dropdown">
-          <button class="dropbtn">Meats:</button>
-          <div class="dropdown-content">
+          <label class="dropdown-choices-label">Meats:</label>
+          <div class="dropdown-choices">
             <button onClick={() => setTopping("Bacon")}>Bacon</button>
             <button onClick={() => setTopping("Black Forest Ham")}>Black Forest Ham</button>
             <button onClick={() => setTopping("Italian Sausage")}>Italian Sausage</button>
@@ -67,8 +67,8 @@ const ServerMultiTopping = (props) => {
           </div>
         </div>
         <div id="Vegetable" class="dropdown">
-          <button class="dropbtn">Vegetable:</button>
-          <div class="dropdown-content">
+          <label class="dropdown-choices-label">Vegetable:</label>
+          <div class="dropdown-choices">
             <button onClick={() => setTopping("Cherry Tomato")}>Cherry Tomato</button>
             <button onClick={() => setTopping("Red Onions")}>Red Onions</button>
             <button onClick={() => setTopping("Black Olives")}>Black Olives</button>
@@ -84,8 +84,8 @@ const ServerMultiTopping = (props) => {
           </div>
         </div>
         <div id="Drizzle" class="dropdown">
-          <button class="dropbtn">Drizzle:</button>
-          <div class="dropdown-content">
+          <label class="dropdown-choices-label">Drizzle:</label>
+          <div class="dropdown-choices">
             <button onClick={() => setTopping("BBQ Sauce")}>BBQ Sauce</button>
             <button onClick={() => setTopping("Balsamic Glaze")}>Balsamic Glaze</button>
             <button onClick={() => setTopping("Sriracha")}>Sriracha</button>
@@ -99,7 +99,7 @@ const ServerMultiTopping = (props) => {
       <div id="OrderList">
       </div>
       <form id="BottomRow" onSubmit={handleSubmit}>
-        <button type="submit">Add to Order</button>
+        <button type="submit" id="AddToOrder">Add to Order</button>
       </form>
     </div>
   )
