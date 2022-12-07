@@ -51,6 +51,7 @@ function ServerHome() {
   return (
     <div id="background">
 
+      <CustomLink href="/" className='site-title'>Log Out</CustomLink>
       <div id="logo">
         <h3 id="logo-words">Spin 'N Stone</h3>
       </div>

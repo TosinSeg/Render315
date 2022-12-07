@@ -486,6 +486,67 @@ app.put("/checkoutServ", async (req, res) => {
     res.json(serverReply.rows);
 })
 
+app.put("/serverCheckout", async (req, res) => {
+    var orders = req.body.order.split("|");
+    for (let i = 0; i < orders.length; i++) {
+        orders[i] = orders[i].split("*");
+    }
+    for (let i = 0; i < orders.length; i++) {
+        let s = orders[i]
+        let type = s[0];
+        serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'House_Blend\'');
+        if (type === "Cheese" || type === "Pepperoni") {
+            if (s[1] == "Red Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'\'');
+            else if (s[1] == "White Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'White\'');
+            else if (s[1] == "Zesty Red Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Zesty_Red\'');
+            if (s[3] === "no_drink") {
+                s.pop();
+            } else {
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'' + s[3] + '_Cups\'');
+            }
+            if (s[2] === "Regular Crust") {
+                serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Dough\'')
+            } else {
+                serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Cauliflour\'')
+            }
+            if (type === "Cheese") {
+            } else {
+                serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Pepperoni\'')
+            }
+        } else if (type === "Drink") {
+            var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'' + s[3] + '_Cups\'');
+        } else if (type !== "") {
+            if (s[1] == "Red Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'\'');
+            else if (s[1] == "White Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'White\'');
+            else if (s[1] == "Zesty Red Sauce")
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Zesty_Red\'');
+            if (s[3] !== "undefined") {
+                s[3] = s[3].split(",");
+                // s[3].splice(0,0,<p>&emsp;&emsp;Toppings:</p>);
+                for (let j = 1; j < s[3].length; j++) {
+                    // s[3][j] = <p>&emsp;&emsp;&emsp; {s[3][j]}</p>;
+                    s[3] = s[3][j].replace(" ", "_")
+                    var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'' + s[3][j] + '\'');
+                }
+            } else {
+                delete s[3];
+            }
+            if (s[2] === "Regular Crust") {
+                serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Dough\'')
+            } else {
+                serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Cauliflour\'')
+            }
+        }
+
+    }
+})
+
+
 /** This function will Display the seasonal menu */
 app.get("/seasonalMenu", async (req, res) => {
     var seasonalReply = await pool.query('SELECT name FROM INVENTORY WHERE id > 48');
