@@ -153,82 +153,82 @@ function App() {
     let component
     switch (window.location.pathname) {
         case "/":
-            component = (Object.keys(user).length == 0 ? <Navbar /> : <NavbarAuth />)
+            component = (Object.keys(user).length==0 ? <Navbar lang={language}/> : <NavbarAuth lang={language}/>)
             break
         case "/manager":
-            component = <ManagerHome />
+            component = <ManagerHome lang={language}/>
             break
         case "/customer":
-            component = <Pizzatype lang={language} />
+            component = <Pizzatype lang={language}/>
             break
         case "/server":
-            component = <ServerHome />
+            component = <ServerHome lang={language}/>
             break
         case "/server":
-            component = <ManagerHome />
+            component = <ManagerHome lang={language}/>
             break
         case "/menu":
             component = <Menu data={menuTable} column={menuColumn} lang={language} />
             break
         case "/restock":
-            component = <Restock data={inventoryTable} column={invColumn} />
+            component = <Restock data={inventoryTable} column={invColumn} lang={language}/>
             break
         case "/inventory":
-            component = <Inventory data={inventoryTable} column={invColumn} />
+            component = <Inventory data={inventoryTable} column={invColumn} lang={language}/>
             break
         case "/trends":
-            component = <Trends data={salesTrendsTable} column={salesTrendsCols} />
+            component = <Trends data={salesTrendsTable} column={salesTrendsCols} lang={language}/>
             break
         case "/restockReport":
-            component = <RestockReport data={restockTable} column={restockReportCols} />
+            component = <RestockReport data={restockTable} column={restockReportCols} lang={language}/>
             break
         case "/excessReport":
-            component = <ExcessReport data={excessTable} column={excessCols} />
+            component = <ExcessReport data={excessTable} column={excessCols} lang={language}/>
             break
         case "/salesTogether":
-            component = <SalesTogether data={togetherTable} column={toColumn} />
+            component = <SalesTogether data={togetherTable} column={toColumn} lang={language}/>
             break
         case "/employeeReport":
-            component = <Employee data={employeeTable} column={employeeCols} />
+            component = <Employee data={employeeTable} column={employeeCols} lang={language}/>
             break
         case "/pizzatype":
-            component = <Pizzatype lang={language} />
+            component = <Pizzatype lang={language}/>
             break
         case "/topping":
-            component = <Topping lang={language} />
+            component = <Topping lang={language}/>
             break
         case "/pizzatypeCanceled":
-            component = <PizzatypeCancel lang={language} />
+            component = <PizzatypeCancel lang={language}/>
             break
         case "/pizzatypediff":
-            component = <Pizzatypediff lang={language} />
+            component = <Pizzatypediff lang={language}/>
             break
         case "/topping-multi":
-            component = <ToppingMulti lang={language} />
+            component = <ToppingMulti lang={language}/>
             break
         case "/topping-one":
-            component = <ToppingOne lang={language} />
+            component = <ToppingOne lang={language}/>
             break
         case "/veggies":
-            component = <Veggies lang={language} />
+            component = <Veggies lang={language}/>
             break
         case "/drizzle":
-            component = <Drizzle lang={language} />
+            component = <Drizzle lang={language}/>
             break
         case "/meats":
-            component = <Meats lang={language} />
+            component = <Meats lang={language}/>
             break
         case "/sauce":
-            component = <Sauce lang={language} />
+            component = <Sauce lang={language}/>
             break
         case "/seasonal":
-            component = <Seasonal lang={language} />
+            component = <Seasonal lang={language}/>
             break
         case "/checkout":
-            component = <Checkout lang={language} />
+            component = <Checkout lang={language}/>
             break
         case "/locationguide":
-            component = <LocationGuide lang={language} />
+            component = <LocationGuide lang={language}/>
             break
     }
     return (

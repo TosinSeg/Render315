@@ -2,11 +2,13 @@ import React, { Component, Fragment, useEffect } from 'react';
 import { useState } from 'react';
 import Table from '../components/table';
 import Navbar from './navbar';
+import translateText from '../translate';
 
 function Restock(props) {
     const [id, setID] = useState('ID');
     const [newAmount, setNewAmount] = useState(0);
     const [inventory, setInventory] = useState([]);
+    const [test, setTest] = useState(["Restock", "View and restock the inventory by each item or restock all items to the recommended amount", "Restock Single Item", "Restock a single item by entering the item ID and the amount to order", "Item ID:", "Order Amount:", "Submit", "Restock All", "Restock all ingredients in the inventory by the recommended amount", "Restock Suggested Amount"]);
 
     const getInventory = async () => {
         const response = await fetch("http://localhost:5001/inventory");
@@ -14,9 +16,19 @@ function Restock(props) {
         console.log(jsonData);
         setInventory(jsonData)
     }
+
     useEffect(() => {
         getInventory();
-    }, [newAmount, id])
+        (async () => {
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang, newAmount, id])
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
@@ -49,28 +61,28 @@ function Restock(props) {
 
     return (
         <Fragment>
-            <Navbar/>
+            <Navbar lang={props.lang}/>
             <div class='heading'>
-                <h1>Restock</h1>
-                <p>View and restock the inventory by each item or restock all items to the recommended amount</p>
+                <h1>{test[0]}</h1>
+                <p>{test[1]}</p>
                 <hr></hr>
             </div>
             <Table data={inventory} column={props.column}/>
             <br></br><br></br>
-            <h1>Restock Single Item </h1>
-            <p>Restock a single item by entering the item ID and the amount to order</p><br></br><br></br>
+            <h1>{test[2]}</h1>
+            <p>{test[3]}</p><br></br><br></br>
             <form onSubmit={onSubmitForm}>
-                <label for="itemId">Item ID:</label>
+                <label for="itemId">{test[4]}</label>
                 <input type="text" className="form-control1" id='itemID' value={id} onChange={e => setID(e.target.value)}/>
-                <label for="newAmount">Order Amount:</label>
+                <label for="newAmount">{test[5]}</label>
                 <input type="text" className="form-control1" id='newAmount'value={newAmount} onChange={e => setNewAmount(e.target.value)}/>
                 <br></br><br></br><br></br>
-                <button onClick={onSubmitForm} class='button'>Submit</button>
+                <button onClick={onSubmitForm} class='button'>{test[6]}</button>
                 <hr></hr>
             </form>
-            <h1>Restock All</h1>
-            <p>Restock all ingredients in the inventory by the recommended amount</p><br></br><br></br>
-            <button onClick={restockSuggested}class='button'>Restock Suggested Amount</button>
+            <h1>{test[7]}</h1>
+            <p>{test[8]}</p><br></br><br></br>
+            <button onClick={restockSuggested}class='button'>{test[9]}</button>
             <br></br><br></br>
             
         </Fragment>

@@ -33,7 +33,7 @@ function Employee(props) {
     return (
         
         <React.Fragment>
-        <Navbar/>    
+        <Navbar lang={props.lang}/>    
         <div class='heading'>
             <h1>Staff</h1>
             <p>View top selling employees and add new employees to the staff</p>

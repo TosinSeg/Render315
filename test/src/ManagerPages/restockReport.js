@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/table';
 import Navbar from './navbar';
+import translateText from '../translate';
 
 function RestockReport(props) {
     const [restockTable, setRestockTable] = useState([]);
+    const [test, setTest] = useState(["Restock Report", "View past restocks"]);
 
     const getRestockData = async () => {
         const response = await fetch("http://localhost:5001/restockReport");
@@ -18,15 +20,24 @@ function RestockReport(props) {
     }
 
     useEffect(() => {
-        getRestockData();
-    }, []);
+        (async () => {
+            getRestockData();
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
 
     return ( 
         <React.Fragment>
-            <Navbar/>
+            <Navbar lang={props.lang}/>
             <div class='heading'>
-                <h1>Restock Report</h1>
-                <p>View past restocks</p>
+                <h1>{test[0]}</h1>
+                <p>{test[1]}</p>
                 <hr></hr>
             </div>
             <Table data={restockTable} column={props.column}></Table> 

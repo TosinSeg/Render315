@@ -1,37 +1,51 @@
-import React, { Component } from 'react';
-function Navbar() {
-    
+import React, { Component, useState, useEffect } from 'react';
+import translateText from '../translate';
+
+function Navbar(props) {
+    const [test, setTest] = useState(["Log Out", "Manager Home", "Trends", "Inventory", "Menu", "Restock", "Restock Report", "Excess Report", "Sales Together", "Manage Staff"]);
+
+    useEffect(() => {
+      (async () => {
+          console.log(props.lang);
+          let temp = []
+          for (let i = 0; i<test.length; ++i){
+              await translateText(test[i], props.lang).then(res => temp.push(res));
+          }
+          setTest(temp);
+      })();
+
+  }, [props.lang])
     return ( <nav className='nav'>
         <ul>
             <li>
-              <CustomLink href="/" className='site-title'>Log Out</CustomLink> 
+              <CustomLink href="/" className='site-title'>{test[0]}</CustomLink> 
             </li>
             <li>
-              <CustomLink href="/manager">Manager Home</CustomLink> 
+              <CustomLink href="/manager">{test[1]}</CustomLink> 
             </li>
             <li>
-              <CustomLink href="/trends">Trends</CustomLink> 
+              <CustomLink href="/trends">{test[2]}</CustomLink> 
             </li>
             <li>
-              <CustomLink href='/inventory'>Inventory</CustomLink>
+              <CustomLink href='/inventory'>{test[3]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/menu'>Menu</CustomLink>
+              <CustomLink href='/menu'>{test[4]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/restock'>Restock</CustomLink>
+              <CustomLink href='/restock'>{test[5]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/restockReport'>Restock Report</CustomLink>
+              <CustomLink href='/restockReport'>{test[6]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/excessReport'>Excess Report</CustomLink>
+              <CustomLink href='/excessReport'>{test[7]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/salesTogether'>Sales Together</CustomLink>
+              <CustomLink href='/salesTogether'>{test[8]}</CustomLink>
             </li>
             <li>
-              <CustomLink href='/employeeReport'>Manage Staff</CustomLink>
+              <CustomLink href='/employeeReport'>{test[9]}</CustomLink>
             </li>
         </ul>
     </nav> );
