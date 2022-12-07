@@ -5,11 +5,11 @@ import translateText from "../translate";
 function ToppingOne(props) {
     const [isLoading, setLoading] = useState(true);
     const OneTopping = async () => {
-        await fetch(`http://localhost:5001/createPizza/${1}/${"One_Topping"}`);
+        await fetch(`https://spinapi.onrender.com/createPizza/${1}/${"One_Topping"}`);
     }
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/currentPizza").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentPizza").then((response) => response.text());
         order = order.replace(/\"/g, "");
         setResponse(order);
     }

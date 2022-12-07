@@ -9,7 +9,7 @@ function Inventory(props) {
     const [test, setTest] = useState(["Inventory", "View the current inventory"])
 
     const getInventory = async () => {
-        const response = await fetch("http://localhost:5001/inventory");
+        const response = await fetch("https://spinapi.onrender.com/inventory");
         const jsonData = await response.json();
         setInventory(jsonData)
     }

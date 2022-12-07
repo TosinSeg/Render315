@@ -50,7 +50,7 @@ function Pizzabuilder() {
         // document.getElementById("Top21").style.opacity = "0";
     }
     const Showtoppings = async () => {
-        let order = await fetch("http://localhost:5001/currentToppings").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentToppings").then((response) => response.text());
         order = order.replace(/\"/g, "");
         let orderarry = order.split(",");
         orderarry = orderarry.slice(0, -1);

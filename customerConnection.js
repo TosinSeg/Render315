@@ -33,7 +33,7 @@ const createPizza = async () => {
         "isCauly": true,
         "numToppings": []
     }
-    const response = await fetch("http://localhost:5001/checkout", {
+    const response = await fetch("https://spinapi.onrender.com/checkout", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)

@@ -10,7 +10,7 @@ function NewlineText(props) {
 function OrderInformation() {
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/checkoutScreen").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/checkoutScreen").then((response) => response.text());
         order = order.replace(/\"/g, "");
         order = order.replace(/\\/g, "");
         setResponse(order);

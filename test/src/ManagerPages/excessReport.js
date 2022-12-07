@@ -26,10 +26,10 @@ function ExcessReport(props) {
     const getExcessData = async (e) => {
         e.preventDefault();
         let rData = []
-        var url = new Url('http://localhost:5001/excessReport');
+        var url = new Url('https://spinapi.onrender.com/excessReport');
         var params = {"beginDate": beginDate, "endDate": endDate};
         url.search = new URLSearchParams(params).toString();
-        const response = await fetch(`http://localhost:5001/excessReport/${beginDate}/${endDate}`);
+        const response = await fetch(`https://spinapi.onrender.com/excessReport/${beginDate}/${endDate}`);
         const jsonData = await response.json();
         var data = new Set()
         for (let i = 0; i<jsonData.length; ++i){
@@ -40,7 +40,7 @@ function ExcessReport(props) {
         console.log(data);
         
         for (let x of data){
-            const response2 = await fetch(`http://localhost:5001/id/${x}`).then((res) => {
+            const response2 = await fetch(`https://spinapi.onrender.com/id/${x}`).then((res) => {
                 res.json().then((jsonData2) => {
                     console.log(jsonData2)
                     rData.push({"id": jsonData2[0]["id"], "name": jsonData2[0]["name"], "count": jsonData2[0]["count"]});

@@ -4,22 +4,22 @@ import LOGO from "../PizzaToppings/logo.png";
 import translateText from "../translate";
 const HandleClickPep = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/createSetPizza/${1}/${"Pepperoni"}`);
+    await fetch(`https://spinapi.onrender.com/createSetPizza/${1}/${"Pepperoni"}`);
     window.location.assign("/pizzatype");
 }
 const CheeseZa = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/createSetPizza/${0}/${"Cheese"}`);
+    await fetch(`https://spinapi.onrender.com/createSetPizza/${0}/${"Cheese"}`);
     window.location.assign("/pizzatype");
 }
 const Drinks = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/soloDrink`);
+    await fetch(`https://spinapi.onrender.com/soloDrink`);
     window.location.assign("/pizzatype");
 }
 const Removelast = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/clearSelection`);
+    await fetch(`https://spinapi.onrender.com/clearSelection`);
     window.location.assign("/pizzatype");
 }
 function NewlineText(props) {
@@ -30,12 +30,12 @@ function NewlineText(props) {
 function PizzatypeCancel(props) {
     const [isLoading, setLoading] = useState(true);
     const CancelOrder = async () => {
-        await fetch(`http://localhost:5001/cancelOrder`);
+        await fetch(`https://spinapi.onrender.com/cancelOrder`);
     }
 
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/checkoutScreen").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/checkoutScreen").then((response) => response.text());
         order = order.replace(/\"/g, "");
         order = order.replace(/\//g, "");
         order = order.replace(/\\/g, "");
@@ -44,7 +44,7 @@ function PizzatypeCancel(props) {
 
     const [price, setPrice] = useState("");
     const PriceInfo = async () => {
-        let order = await fetch("http://localhost:5001/calculatePrice").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/calculatePrice").then((response) => response.text());
         order = order.replace(/\"/g, "");
 
         setPrice(order);

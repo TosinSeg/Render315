@@ -3,7 +3,7 @@ import Pizzabuilder from "./pizzabuilder";
 import translateText from "../translate";
 const Balsamic = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Balsamic Glaze"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Balsamic Glaze"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -13,7 +13,7 @@ const Balsamic = async (e) => {
 
 const Basilpesto = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Basil Pesto"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Basil Pesto"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -23,7 +23,7 @@ const Basilpesto = async (e) => {
 
 const Bbqsauce = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"BBQ Sauce"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"BBQ Sauce"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -33,7 +33,7 @@ const Bbqsauce = async (e) => {
 
 const Oliveoil = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Olive Oil"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Olive Oil"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -43,7 +43,7 @@ const Oliveoil = async (e) => {
 
 const Oregano = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Oregano"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Oregano"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -53,7 +53,7 @@ const Oregano = async (e) => {
 
 const Sriracha = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Sriracha"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Sriracha"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -63,7 +63,7 @@ const Sriracha = async (e) => {
 }
 const Removetopping = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/removeLastTopping`)
+    await fetch(`https://spinapi.onrender.com/removeLastTopping`)
     window.location.reload();
 
 }
@@ -72,7 +72,7 @@ function Drizzle(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/currentPizza").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentPizza").then((response) => response.text());
         order = order.replace(/\"/g, "");
         setResponse(order);
     }

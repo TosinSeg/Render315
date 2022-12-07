@@ -3,49 +3,49 @@ import Pizzabuilder from "./pizzabuilder";
 import translateText from "../translate";
 const Red = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/addSauce/${"Red"}`);
+    await fetch(`https://spinapi.onrender.com/addSauce/${"Red"}`);
     window.location.reload();
 }
 
 const Zestyred = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/addSauce/${"Zesty_Red"}`);
+    await fetch(`https://spinapi.onrender.com/addSauce/${"Zesty_Red"}`);
     window.location.reload();
 }
 
 const White = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/addSauce/${"White"}`);
+    await fetch(`https://spinapi.onrender.com/addSauce/${"White"}`);
     window.location.reload();
 }
 
 const Regular = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/crustType/${false}`);
+    await fetch(`https://spinapi.onrender.com/crustType/${false}`);
     window.location.reload();
 }
 
 const Cauliflour = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/crustType/${true}`);
+    await fetch(`https://spinapi.onrender.com/crustType/${true}`);
     window.location.reload();
 }
 
 const MakeCombo = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/comboMeal/${true}`);
+    await fetch(`https://spinapi.onrender.com/comboMeal/${true}`);
     window.location.reload();
 }
 const UndoCombo = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/comboMeal/${false}`);
+    await fetch(`https://spinapi.onrender.com/comboMeal/${false}`);
     window.location.reload();
 }
 function Sauce(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/currentPizza").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentPizza").then((response) => response.text());
         order = order.replace(/\"/g, "");
         setResponse(order);
     }

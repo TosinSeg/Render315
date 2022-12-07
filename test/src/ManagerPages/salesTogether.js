@@ -28,7 +28,7 @@ function SalesTogether(props) {
         
         e.preventDefault();
         let salesTogether1 = []
-        const response = await fetch(`http://localhost:5001/salesTogether/${beginDate}/${endDate}`);
+        const response = await fetch(`https://spinapi.onrender.com/salesTogether/${beginDate}/${endDate}`);
         const jsonData = await response.json();
         
         console.log(jsonData);

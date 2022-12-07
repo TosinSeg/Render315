@@ -16,7 +16,7 @@ function Menu(props) {
     
 
     const getMenu = async () => {
-        const response = await fetch("http://localhost:5001/menu");
+        const response = await fetch("https://spinapi.onrender.com/menu");
         const jsonData = await response.json();
         setMenu(jsonData)
     }
@@ -24,12 +24,12 @@ function Menu(props) {
 
     const addNewIngredient = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5001/inventory");
+        const response = await fetch("https://spinapi.onrender.com/inventory");
         const jsonData = await response.json();
         let n = jsonData.length;
         console.log(n);
         const body = {"name": ingName, "count": count, "cost": newCost, "num": n};
-        const respone = await fetch("http://localhost:5001/addIngredient", {
+        const respone = await fetch("https://spinapi.onrender.com/addIngredient", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),
@@ -38,7 +38,7 @@ function Menu(props) {
     const addNewItem = async (e) => {
         e.preventDefault();
         const body = {"id": id, "name": name, "price": price};
-        const respone = await fetch("http://localhost:5001/addItem", {
+        const respone = await fetch("https://spinapi.onrender.com/addItem", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),
@@ -49,7 +49,7 @@ function Menu(props) {
     const changePrice = async (e) => {
         e.preventDefault();
         const body = {"id": id, "newPrice": price};
-        const respone = await fetch("http://localhost:5001/updatePrice", {
+        const respone = await fetch("https://spinapi.onrender.com/updatePrice", {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),

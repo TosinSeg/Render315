@@ -8,7 +8,7 @@ function RestockReport(props) {
     const [test, setTest] = useState(["Restock Report", "View past restocks"]);
 
     const getRestockData = async () => {
-        const response = await fetch("http://localhost:5001/restockReport");
+        const response = await fetch("https://spinapi.onrender.com/restockReport");
         const jsonData = await response.json();
         var data = []
         for (let x of jsonData){

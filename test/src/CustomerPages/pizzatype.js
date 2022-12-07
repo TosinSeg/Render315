@@ -6,17 +6,17 @@ import translateText from "../translate";
 import OrderInformation from "./orderinfo";
 const HandleClickPep = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/createSetPizza/${1}/${"Pepperoni"}`);
+    await fetch(`https://spinapi.onrender.com/createSetPizza/${1}/${"Pepperoni"}`);
     window.location.assign("/pizzatype");
 }
 const CheeseZa = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/createSetPizza/${0}/${"Cheese"}`);
+    await fetch(`https://spinapi.onrender.com/createSetPizza/${0}/${"Cheese"}`);
     window.location.assign("/pizzatype");
 }
 const Drinks = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/soloDrink`);
+    await fetch(`https://spinapi.onrender.com/soloDrink`);
     window.location.assign("/pizzatype");
 }
 
@@ -27,7 +27,7 @@ function NewlineText(props) {
 }
 const Removelast = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/clearSelection`);
+    await fetch(`https://spinapi.onrender.com/clearSelection`);
     window.location.assign("/pizzatype");
 }
 
@@ -36,7 +36,7 @@ const Removelast = async (e) => {
 function Pizzatype(props) {
     const [price, setPrice] = useState("");
     const PriceInfo = async () => {
-        let order = await fetch("http://localhost:5001/calculatePrice").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/calculatePrice").then((response) => response.text());
         order = order.replace(/\"/g, "");
 
         setPrice(order);

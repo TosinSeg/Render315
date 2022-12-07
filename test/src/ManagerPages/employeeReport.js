@@ -9,7 +9,7 @@ function Employee(props) {
     const [id, setId] = useState(0);
 
     const getEmployee = async () => {
-        const response = await fetch("http://localhost:5001/employeeReport");
+        const response = await fetch("https://spinapi.onrender.com/employeeReport");
         const jsonData = await response.json();
         console.log(jsonData)
         console.log("hell")
@@ -19,7 +19,7 @@ function Employee(props) {
     const addNewEmployee = async (e) => {
         e.preventDefault();
         const body = {"id": id, "employeename": employeename};
-        const respone = await fetch("http://localhost:5001/addEmployee", {
+        const respone = await fetch("https://spinapi.onrender.com/addEmployee", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),

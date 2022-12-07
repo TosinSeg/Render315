@@ -11,7 +11,7 @@ function Restock(props) {
     const [test, setTest] = useState(["Restock", "View and restock the inventory by each item or restock all items to the recommended amount", "Restock Single Item", "Restock a single item by entering the item ID and the amount to order", "Item ID:", "Order Amount:", "Submit", "Restock All", "Restock all ingredients in the inventory by the recommended amount", "Restock Suggested Amount"]);
 
     const getInventory = async () => {
-        const response = await fetch("http://localhost:5001/inventory");
+        const response = await fetch("https://spinapi.onrender.com/inventory");
         const jsonData = await response.json();
         console.log(jsonData);
         setInventory(jsonData)
@@ -35,7 +35,7 @@ function Restock(props) {
         //console.log("clicked");
         const body = {"id": id, "newAmount": newAmount};
         console.log(body);
-        const respone = await fetch("http://localhost:5001/updateAmount", {
+        const respone = await fetch("https://spinapi.onrender.com/updateAmount", {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body),
@@ -50,7 +50,7 @@ function Restock(props) {
             let amt = Math.floor(Math.random() * 200) + 100;
             console.log(amt);
             const body = {"id": i, "newAmount": amt};
-            const respone = await fetch("http://localhost:5001/updateAmount", {
+            const respone = await fetch("https://spinapi.onrender.com/updateAmount", {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body),

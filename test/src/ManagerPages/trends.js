@@ -29,10 +29,10 @@ function Trends(props) {
         let itemCounts = [];
         
         let rData = []
-        // var url = new Url('http://localhost:5001/excessReport');
+        // var url = new Url('https://spinapi.onrender.com/excessReport');
         // var params = {"beginDate": beginDate, "endDate": endDate};
         // url.search = new URLSearchParams(params).toString();
-        const menuResponse = await fetch("http://localhost:5001/menu");
+        const menuResponse = await fetch("https://spinapi.onrender.com/menu");
         const menuJsonData = await menuResponse.json();
 
         for(let i = 0; i < menuJsonData.length; i++) {
@@ -41,10 +41,10 @@ function Trends(props) {
         
         for(let i of itemNames) {
             console.log(i)
-            const drinkResponse = await fetch(`http://localhost:5001/drinks/${i}`);
+            const drinkResponse = await fetch(`https://spinapi.onrender.com/drinks/${i}`);
             const drinkJsonData = await drinkResponse.json();
 
-            const pizzaResponse = await fetch(`http://localhost:5001/pizza/${i}`);
+            const pizzaResponse = await fetch(`https://spinapi.onrender.com/pizza/${i}`);
             const pizzaJsonData = await pizzaResponse.json();
 
             let itemCount = 0;

@@ -3,7 +3,7 @@ import Pizzabuilder from "./pizzabuilder";
 import translateText from "../translate";
 const Pepperoni = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Pepperoni"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Pepperoni"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -15,7 +15,7 @@ const Pepperoni = async (e) => {
 
 const Ham = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Ham"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Ham"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -25,7 +25,7 @@ const Ham = async (e) => {
 
 const Sausage = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Sausage"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Sausage"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -35,7 +35,7 @@ const Sausage = async (e) => {
 
 const Meatballs = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Meatballs"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Meatballs"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -45,7 +45,7 @@ const Meatballs = async (e) => {
 
 const Salami = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Salami"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Salami"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -56,7 +56,7 @@ const Salami = async (e) => {
 const Bacon = async (e) => {
     e.preventDefault();
     //stringify the reply if needed, see what it is first
-    if (await fetch(`http://localhost:5001/addTopping/${'Bacon'}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${'Bacon'}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -67,7 +67,7 @@ const Bacon = async (e) => {
 
 const Chicken = async (e) => {
     e.preventDefault();
-    if (await fetch(`http://localhost:5001/addTopping/${"Chicken"}`)
+    if (await fetch(`https://spinapi.onrender.com/addTopping/${"Chicken"}`)
         .then((response) => response.text()) === "\"false\"") {
         alert("Too many toppings");
     } else {
@@ -76,7 +76,7 @@ const Chicken = async (e) => {
 }
 const Removetopping = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/removeLastTopping`)
+    await fetch(`https://spinapi.onrender.com/removeLastTopping`)
     window.location.reload();
 
 }
@@ -86,7 +86,7 @@ function Meats(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/currentPizza").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentPizza").then((response) => response.text());
         order = order.replace(/\"/g, "");
         setResponse(order);
     }

@@ -3,7 +3,7 @@ import Pizzabuilder from "./pizzabuilder";
 import translateText from "../translate";
 const Removetopping = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5001/removeLastTopping`)
+    await fetch(`https://spinapi.onrender.com/removeLastTopping`)
     window.location.reload();
 
 }
@@ -12,7 +12,7 @@ function Seasonal(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
-        let order = await fetch("http://localhost:5001/currentPizza").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/currentPizza").then((response) => response.text());
         order = order.replace(/\"/g, "");
         setResponse(order);
 
@@ -20,7 +20,7 @@ function Seasonal(props) {
 
     const [season, setSeason] = useState("");
     const Seasonalinfo = async () => {
-        let order = await fetch("http://localhost:5001/seasonalMenu").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/seasonalMenu").then((response) => response.text());
         order = order.replace(/name/g, "");
         order = order.replace(/\[/g, "");
         order = order.replace(/]/g, "");
@@ -41,7 +41,7 @@ function Seasonal(props) {
             button.id = myArray[i];
             button.onclick = async function (e) {
                 e.preventDefault();
-                if (await fetch(`http://localhost:5001/addTopping/${myArray[i]}`)
+                if (await fetch(`https://spinapi.onrender.com/addTopping/${myArray[i]}`)
                     .then((response) => response.text()) === "\"false\"") {
                     alert("Too many toppings");
                 } else {

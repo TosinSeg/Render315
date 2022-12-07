@@ -36,7 +36,7 @@ function ServerHome() {
 
   const checkout = async (order) => {
     alert("order: " + order);
-    const response = await fetch("http://localhost:5001/serverCheckout", {
+    const response = await fetch("https://spinapi.onrender.com/serverCheckout", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

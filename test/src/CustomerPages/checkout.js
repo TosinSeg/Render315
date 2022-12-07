@@ -5,10 +5,10 @@ import translateText from "../translate";
 const Finishorder = async (e) => {
     e.preventDefault();
     const response =
-        await fetch(`http://localhost:5001/checkoutServ`, {
+        await fetch(`https://spinapi.onrender.com/checkoutServ`, {
             method: "PUT",
         });
-    await fetch(`http://localhost:5001/cancelOrder`);
+    await fetch(`https://spinapi.onrender.com/cancelOrder`);
     window.location.assign("/locationguide");
 }
 
@@ -16,12 +16,12 @@ function Checkout(props) {
 
 
     const Addtoorder = async () => {
-        await fetch(`http://localhost:5001/addToOrder`);
-        await fetch(`http://localhost:5001/deletePizza`);
+        await fetch(`https://spinapi.onrender.com/addToOrder`);
+        await fetch(`https://spinapi.onrender.com/deletePizza`);
     }
     const [price, setPrice] = useState("");
     const PriceInfo = async () => {
-        let order = await fetch("http://localhost:5001/calculatePrice").then((response) => response.text());
+        let order = await fetch("https://spinapi.onrender.com/calculatePrice").then((response) => response.text());
         order = order.replace(/\"/g, "");
 
         setPrice(order);
