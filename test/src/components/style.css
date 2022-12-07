@@ -1,0 +1,96 @@
+body {
+    background-color: #52575D;
+    color: #F6F4E6;
+}
+
+#background {
+    background-color: #52575D;
+    color: #F6F4E6;
+    height: 90vh;
+    margin: 0;
+}
+
+#main-body {
+    display: flex;
+    background-color: #52575D;
+    color: #F6F4E6;
+    height: 100%;
+
+}
+
+.main-body-container {
+    flex-basis: 50%;
+    color: #F6F4E6;
+}
+
+.main-button-menu {
+    background-color: #FDDB3A;
+    /* border: black; */
+    font-size: 24px;
+    padding: 30px 145px 30px 20px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.serverOrder {
+    color: #F6F4E6;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+#logo {
+    font-size: 64px;
+    color: #F6F4E6;
+    background-color: #41444B;
+    display: flex;
+    justify-content: center;
+}
+
+#logo-words {
+    border-bottom: double #FDDB3A 10px;
+    font-size: 64px;
+}
+
+#test {
+    background-color: aqua;
+}
+
+#button-container {
+    display: flex;
+}
+
+#button-panel {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+#button-panel button {
+    width: 100px;
+}
+
+.dropdown-choices {
+    font-size: 24px;
+    float: right;
+}
+
+.dropdown-choices-label {
+    font-size: 24px;
+
+}
+
+#OrderButtonMenu {
+    display: flex;
+    color: #F6F4E6;
+    width: 35vw;
+    height: 65vh;
+    flex-direction: column;
+
+}
+
+#AddToOrder {
+    border: none;
+    border-top: 20px;
+    font-size: 24px;
+}

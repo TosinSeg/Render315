@@ -1,0 +1,162 @@
+.toggle-wrapper {
+    width: 605px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.base {
+    position: absolute;
+    top: 250px;
+    z-index: 0;
+
+}
+
+.top1 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 4;
+}
+
+.top2 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 21;
+}
+
+.top3 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 7;
+}
+
+.top4 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 14;
+}
+
+.top5 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 12;
+}
+
+.top6 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 16;
+}
+
+.top7 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 11;
+}
+
+.top8 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 19;
+}
+
+.top9 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 15;
+}
+
+.top10 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 6;
+}
+
+.top11 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 17;
+}
+
+.top12 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 18;
+}
+
+.top13 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 8;
+}
+
+.top14 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 20;
+}
+
+.top15 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.top16 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 13;
+}
+
+.top17 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 10;
+}
+
+.top18 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 22;
+}
+
+.top19 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 3;
+}
+
+.top20 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 5;
+}
+
+.top21 {
+    position: absolute;
+    top: 250px;
+    opacity: 0;
+    z-index: 9;
+}

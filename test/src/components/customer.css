@@ -1,0 +1,347 @@
+.grid-container {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 100px;
+    grid-template-columns: auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+}
+
+.grid-item {
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    font-size: 30px;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+
+}
+
+
+
+.grid-container-topping {
+    position: absolute;
+    top: 28%;
+    right: 5%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 100px;
+    grid-template-columns: auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+}
+
+
+
+.grid-item-topping {
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    font-size: 30px;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+
+
+}
+
+.grid-container-toppingitems {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 100px;
+    grid-template-columns: auto auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+
+}
+
+.grid-item-toppingitems {
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    font-size: 27px;
+    border: 0px;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+}
+
+.grid-container-topping3 {
+    position: absolute;
+    top: 26%;
+    right: 4%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+
+}
+
+.grid-item-topping3 {
+    width: 300px;
+    height: 100px;
+    padding: 15px;
+    font-size: 25px;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+}
+
+.grid-container-checkout {
+    position: absolute;
+    top: 50%;
+    right: 12%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+}
+
+.grid-container-sauces {
+    position: absolute;
+    top: 26%;
+    right: 4%;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #52575D;
+    border: 10px solid #52575D;
+    border-radius: 10px;
+}
+
+.grid-item-sauce {
+    width: 300px;
+    height: 100px;
+    padding: 15px;
+    margin-bottom: 25px;
+    font-size: 25px;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+
+}
+
+.order-container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: grid;
+    row-gap: 10px;
+    grid-template-columns: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 70%;
+    height: 70%;
+    width: 30%;
+    border: 5px solid #52575D;
+    border-radius: 10px;
+    background-color: #52575D;
+}
+
+.backButton {
+    position: absolute;
+    bottom: 0%;
+    font-size: 35px;
+    padding: 15px;
+    width: fit-content;
+    border: 0px;
+    min-width: 300px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+}
+
+.backButton2 {
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+    font-size: 35px;
+    padding: 15px;
+    width: fit-content;
+    border: 0px;
+    min-width: 300px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+}
+
+.nextButton {
+    position: absolute;
+    bottom: 0%;
+    font-size: 35px;
+    padding: 15px;
+    width: 300px;
+    right: 0%;
+    border: 0px;
+    background-color: #41444B;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #F0EAD6;
+    text-align: center;
+}
+
+.pageTitle {
+    position: absolute;
+    font-size: 60px;
+    top: 5%;
+    right: 20%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+
+
+}
+
+.pageTitle-topping {
+    position: absolute;
+    font-size: 60px;
+    top: 13%;
+    left: 40%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+
+}
+
+.pageTitle-checkout {
+    position: absolute;
+    font-size: 60px;
+    top: 13%;
+    right: 20%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+
+}
+
+.orderDisplay {
+    position: relative;
+    left: 2%;
+    font-size: 20px;
+    color: #F0EAD6;
+    background-color: #52575D;
+    border-radius: 10px;
+
+}
+
+.priceDisplay {
+    position: absolute;
+    font-size: 30px;
+    bottom: 8%;
+    left: 20%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.pizzaInfoTitle {
+    position: absolute;
+    top: 19%;
+    left: 10%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.pizzaInfo {
+    position: absolute;
+    font-size: 28px;
+    width: 80%;
+    max-height: 10%;
+    left: 15%;
+    top: 3%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.pizzaBuilder {
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    color: #F0EAD6;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.disclaimer {
+    position: absolute;
+    bottom: 10%;
+    font-size: 28px;
+    left: 8%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.or {
+    position: absolute;
+    top: 40%;
+
+    right: 40%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.mapTitle {
+    position: absolute;
+    font-size: 50px;
+    top: 8%;
+    left: 10%;
+    color: #F0EAD6;
+    background-color: #41444B;
+    border-radius: 10px;
+}
+
+.mapdisplay {
+    width: 50%;
+    position: relative;
+    left: 45%;
+    margin-top: 5%;
+}
+
+.logo1 {
+    z-index: 0;
+    opacity: 20%;
+    position: absolute;
+    left: 13%;
+    top: 0%;
+
+}

@@ -1,0 +1,23 @@
+Recommended Order:
+BasePizza (ALWAYS ON)
+Pepperoni
+Salami
+Bacon
+Smoked_Chicken
+Italian_Sausage
+Black_Forest_Ham
+Meatball
+Spinach
+Red_Potato
+Cherry_Tomato
+Brocolli
+Red_Onions
+Black_Olives
+Green_Peppers
+Caramelized_Onions
+Jalapenos
+K-whatever_Olves
+Garlic
+Mushrooms
+Banana_Peppers
+Red_Peppers
