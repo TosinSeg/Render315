@@ -1,6 +1,7 @@
 import React, { useEffect, Fragment, useState } from "react";
 import OrderInformation from "./orderinfo";
 import LOGO from "../PizzaToppings/logo.png";
+import translateText from "../translate";
 const Finishorder = async (e) => {
     e.preventDefault();
     const response =
@@ -11,7 +12,9 @@ const Finishorder = async (e) => {
     window.location.assign("/locationguide");
 }
 
-function Checkout() {
+function Checkout(props) {
+    const [test, setTest] = useState(["Select Payment Type:", "Cash", "Card", "Dining Dollars", "Or: ", "Add another Item", " Cancel Order", "Total Cost: $"]);
+
     const Addtoorder = async () => {
         await fetch(`http://localhost:5001/addToOrder`);
         await fetch(`http://localhost:5001/deletePizza`);
@@ -28,14 +31,25 @@ function Checkout() {
     useEffect(() => {
         Addtoorder();
     }, [])
+
     useEffect(() => {
         PriceInfo();
     }, [price])
 
-    setTimeout(() => { console.log("Waiting"); }, 3000);
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = [];
+            for (let i = 0; i < test.length; ++i) {
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+    }, [props.lang])
+
     return (<Fragment>
         <img alt="Spin N Stone Logo" className="logo1" src={LOGO} />
-        <h1 className="pageTitle-checkout">Select Payment Type:</h1>
+        <h1 className="pageTitle-checkout">{test[0]}</h1>
         <div className="grid-container-topping3">
             <button className="grid-item-topping3" onClick={Finishorder}>Cash</button>
             <button className="grid-item-topping3" onClick={Finishorder}>Card</button>
