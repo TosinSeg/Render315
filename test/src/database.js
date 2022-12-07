@@ -8,6 +8,7 @@ const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(5001, () => {
     console.log("server has started on port 5001");
