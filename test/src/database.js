@@ -486,18 +486,19 @@ app.put("/checkoutServ", async (req, res) => {
     res.json(serverReply.rows);
 })
 
-app.put("/serverCheckout", async (req, res) => {
+app.post("/serverCheckout", async (req, res) => {
     var orders = req.body.order.split("|");
     for (let i = 0; i < orders.length; i++) {
         orders[i] = orders[i].split("*");
     }
     for (let i = 0; i < orders.length; i++) {
         let s = orders[i]
+        console.log(i)
         let type = s[0];
         serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'House_Blend\'');
         if (type === "Cheese" || type === "Pepperoni") {
             if (s[1] == "Red Sauce")
-                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'\'');
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Red\'');
             else if (s[1] == "White Sauce")
                 var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'White\'');
             else if (s[1] == "Zesty Red Sauce")
@@ -520,7 +521,7 @@ app.put("/serverCheckout", async (req, res) => {
             var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'' + s[3] + '_Cups\'');
         } else if (type !== "") {
             if (s[1] == "Red Sauce")
-                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'\'');
+                var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'Red\'');
             else if (s[1] == "White Sauce")
                 var serverReply = await pool.query('UPDATE inventory SET count = count-1 WHERE name = \'White\'');
             else if (s[1] == "Zesty Red Sauce")
@@ -544,6 +545,8 @@ app.put("/serverCheckout", async (req, res) => {
         }
 
     }
+    console.log("here")
+    res.json(serverReply.rows);
 })
 
 
