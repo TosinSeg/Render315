@@ -108,30 +108,30 @@ function Meats(props) {
         })();
     }, [props.lang])
     let pizza = <Pizzabuilder lang={props.lang} />
-    return (<Fragment><h1 className="pageTitle-topping">Select Meats:</h1>
+    return (<Fragment><h1 className="pageTitle-topping">{test[0]}</h1>
         <div className="grid-container-toppingitems">
-            <button className="grid-item-toppingitems" onClick={Pepperoni}>Pepperoni</button>
-            <button className="grid-item-toppingitems" onClick={Ham}>Black Forest Ham</button>
-            <button className="grid-item-toppingitems" onClick={Sausage}>Italian Sausage</button>
-            <button className="grid-item-toppingitems" onClick={Meatballs}>Meatballs</button>
-            <button className="grid-item-toppingitems" onClick={Salami}>Salami</button>
-            <button className="grid-item-toppingitems" onClick={Bacon}>Bacon</button>
-            <button className="grid-item-toppingitems" onClick={Chicken}>Smoked Chicken</button>
-            <button className="grid-item-toppingitems" onClick={Removetopping}>Remove Last Topping</button>
+            <button className="grid-item-toppingitems" onClick={Pepperoni}>{test[1]}</button>
+            <button className="grid-item-toppingitems" onClick={Ham}>{test[2]}</button>
+            <button className="grid-item-toppingitems" onClick={Sausage}>{test[3]}</button>
+            <button className="grid-item-toppingitems" onClick={Meatballs}>{test[4]}</button>
+            <button className="grid-item-toppingitems" onClick={Salami}>{test[5]}</button>
+            <button className="grid-item-toppingitems" onClick={Bacon}>{test[6]}</button>
+            <button className="grid-item-toppingitems" onClick={Chicken}>{test[7]}</button>
+            <button className="grid-item-toppingitems" onClick={Removetopping}>{test[8]}</button>
         </div>
         <div>
             <a href="/pizzatypediff">
-                <button className="backButton">Back To Menu</button>
+                <button className="backButton">{test[9]}</button>
             </a>
             <a href="/topping">
-                <button className="backButton2"> Add More Toppings</button>
+                <button className="backButton2"> {test[10]}</button>
             </a>
 
             <a href="/sauce">
-                <button className="nextButton">Next</button>
+                <button className="nextButton">{test[11]}</button>
             </a>
         </div>
-        <h1 className="pizzaInfoTitle">Your Current Pizza:</h1>
+        <h1 className="pizzaInfoTitle">{test[12]}</h1>
         <p className="pizzaInfo">{response}</p>
         <p className="pizzaBuilder">{pizza}</p>
     </Fragment>);

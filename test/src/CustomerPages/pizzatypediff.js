@@ -59,7 +59,7 @@ function Pizzatypediff(props) {
 
     }, [price])
 
-    const [test, setTest] = useState(["Select Pizza Type: ", "Pepperoni Pizza", "Cheese", "One Topping", "2-4 Topping", "Add A Fountain Drink", "Remove Last Item", "Cancel Order", "Complete Order", "Total Cost: $"]);
+    const [test, setTest] = useState(["Select Pizza Type: ", "Pepperoni Pizza", "Cheese", "One Topping", "2-4 Topping", "Add A Fountain Drink", "Remove Last Item", "Cancel Order", "Complete Order", "Total Cost: $", "Back To Home Screen"]);
     useEffect(() => {
         (async () => {
             console.log(props.lang);
@@ -101,7 +101,9 @@ function Pizzatypediff(props) {
                 <OrderInformation />
             </div>
             <p className="priceDisplay">{test[9]}{price}</p>
-
+            <a href="/">
+                <button className="backButton" >{test[10]}</button>
+            </a>
         </Fragment >
     );
 }
