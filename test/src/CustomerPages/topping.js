@@ -16,7 +16,7 @@ function Topping(props) {
         OrderInfo();
         setLoading(false);
     }, [response])
-    const [test, setTest] = useState(["Select Toppings:", "Meats", "Vegetables", "Drizzles", "Select Different Pizza Type", "Next", "Your Current Pizza:"]);
+    const [test, setTest] = useState(["Select Toppings:", "Meats", "Vegetables", "Drizzles", "Seasonal Toppings", "Select Different Pizza Type", "Next", "Your Current Pizza:"]);
     useEffect(() => {
         (async () => {
             console.log(props.lang);
