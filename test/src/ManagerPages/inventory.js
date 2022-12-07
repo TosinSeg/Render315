@@ -1,26 +1,39 @@
 import React, { Component, useEffect, useState } from 'react';
 import Table from "../components/table.jsx";
 import Navbar from './navbar';
+import translateText from '../translate.js';
 
 function Inventory(props) {
 
     const [inventory, setInventory] = useState([]);
+    const [test, setTest] = useState(["Inventory", "View the current inventory"])
 
     const getInventory = async () => {
         const response = await fetch("http://localhost:5001/inventory");
         const jsonData = await response.json();
         setInventory(jsonData)
     }
+  
     useEffect(() => {
-        getInventory();
-    }, [])
+        (async () => {
+            getInventory();
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
+    
     return (
         
         <React.Fragment>
         <Navbar/>    
         <div class='heading'>
-            <h1>Inventory</h1>
-            <p>View the current inventory</p>
+            <h1>{test[0]}</h1>
+            <p>{test[1]}</p>
             <hr></hr>
         </div> 
 

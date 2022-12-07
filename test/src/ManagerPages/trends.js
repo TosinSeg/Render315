@@ -1,13 +1,26 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Table from '../components/table';
 import Navbar from './navbar';
-
+import translateText from '../translate';
 
 function Trends(props) {
     console.log(window.location.pathname);
     const [trendsTable, setTrendsTable] = useState([1,1,1]);
     const [beginDate, setBeginDate] = useState('MM-DD-YYYY');
     const [endDate, setEndDate] = useState('MM-DD-YYYY');
+    const [test, setTest] = useState(["Sales Trends", "Generate itemized sales report over period of time", "Generate Report Over Specific Time Period", "Enter a start and end date for the period to be searched", "Start Date:", "End Date:", "Generate Report"]);
+
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
 
     const getTrendsData = async (e) => {
         e.preventDefault();
@@ -98,21 +111,21 @@ function Trends(props) {
         <React.Fragment>
             <Navbar/>
             <div class="heading">
-                <h1>Sales Trends</h1>
-                <p>Generate itemized sales report over period of time</p>
+                <h1>{test[0]}</h1>
+                <p>{test[1]}</p>
                 <hr></hr>
             </div>
             <Table data={trendsTable} column={props.column}></Table>
             <br></br><br></br>
-            <h1>Generate Report Over Specific Time Period</h1>
-            <p>Enter a start and end date for the period to be searched</p><br></br>
+            <h1>{test[2]}</h1>
+            <p>{test[3]}</p><br></br>
             <form>
-                <label for="beginDate">Start Date:</label>
+                <label for="beginDate">{test[4]}</label>
                 <input type="text" className='form-control1' id='beginDate'  value={beginDate} onChange={e => setBeginDate(e.target.value)}/>
-                <label for="endDate">End Date:</label>
+                <label for="endDate">{test[5]}</label>
                 <input type="text" className='form-control1' id='endDate' value={endDate} onChange={e => setEndDate(e.target.value)}/>
                 <br></br><br></br><br></br>
-                <button onClick={getTrendsData} class='button'>Generate Report</button>
+                <button onClick={getTrendsData} class='button'>{test[6]}</button>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             </form> 
         

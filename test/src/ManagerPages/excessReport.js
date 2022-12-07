@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import Table from "../components/table.jsx";
 import Navbar from './navbar';
+import translateText from '../translate.js';
 const {Url} = require('url');
+
 
 function ExcessReport(props) {
     const [excessTable, setExcessTable] = useState([1,1,1]);
     const [beginDate, setBeginDate] = useState('YYYY-MM-DD');
     const [endDate, setEndDate] = useState('YYYY-MM-DD');
+    const [test, setTest] = useState(["Excess Report", "View the items in the inventory that were excess over a time period", "Generate Report", "Enter start and end date for desired time period.", "Start Date:", "End Date:"]);
     
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
 
     const getExcessData = async (e) => {
         e.preventDefault();
@@ -42,25 +56,25 @@ function ExcessReport(props) {
 
     return ( 
         <React.Fragment>
-            <Navbar/>
+            <Navbar lang={props.lang}/>
             <div class='heading'>
-                <h1>Excess Report</h1>
-                <p>Veiw the items in the inventory that were excess over a time period</p>
+                <h1>{test[0]}</h1>
+                <p>{test[1]}</p>
                 <hr></hr>
                 <br></br><br></br>
             </div>
             <Table data={excessTable} column={props.column}></Table> 
             <br></br><br></br>
-            <h1>Generate Report</h1>
-            <p>Enter start and end date for desired time period.</p>
+            <h1>{test[2]}</h1>
+            <p>{test[3]}</p>
             <br></br>
             <form>
-                <label for="start">Start Date:</label>
+                <label for="start">{test[4]}</label>
                 <input type="text" className='form-control1' id='start' value={beginDate} onChange={e => setBeginDate(e.target.value)}/>
-                <label for="end">End Date:</label>
+                <label for="end">{test[5]}</label>
                 <input type="text" className='form-control1' id='end' value={endDate} onChange={e => setEndDate(e.target.value)}/>
                 <br></br><br></br><br></br>
-                <button onClick={getExcessData} class='button'>Generate Report</button>
+                <button onClick={getExcessData} class='button'>{test[2]}</button>
             </form>
         </React.Fragment>
         

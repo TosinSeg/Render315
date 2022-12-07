@@ -9,20 +9,34 @@ import Trends from "./trends.js";
 import RestockReport from "./restockReport.js";
 import ExcessReport from "./excessReport.js";
 import SalesTogether from "./salesTogether.js";
+import translateText from "../translate.js";
 
-function ManagerHome() {
-
+function ManagerHome(props) {
+    const [test, setTest] = useState(["Welcome"]);
     let component
     switch(window.location.pathname) {
         case "/manager":
-            component = <Navbar/>
+            component = <Navbar lang={props.lang}/>
             break
     }
+
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = []
+            for (let i = 0; i<test.length; ++i){
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+
+    }, [props.lang])
+
     return (
         <React.Fragment>
             {component}
             <div class ="heading">
-                <h1>Welcome</h1>
+                <h1>{test[0]}</h1>
                 <hr></hr>
             </div>
             <div class = "pizza-image">
