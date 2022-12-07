@@ -20,7 +20,7 @@ const ServerOneTopping = (props) => {
     }
 
     return (
-        <div>ServerOneTopping
+        <div>
             <div id="OrderButtonMenu">
                 <div id="Sauce">
                     <label htmlFor="sauces">Sauce:</label>

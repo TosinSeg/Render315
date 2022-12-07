@@ -4,7 +4,9 @@ import Order from "../components/Order";
 import MainButtonMenu from "../components/MainButtonMenu";
 import "../components/style.css";
 
-function App() {
+
+
+function ServerHome() {
   const [order, sendOrder] = useState('');
   // const translate = require('google-translate-api');
 
@@ -23,7 +25,7 @@ function App() {
   }
 
   const checkout = async (order) => {
-    // alert("order: " + order);
+    alert("order: " + order);
     const response = await fetch("http://localhost:5001/serverCheckout", {
       method: "POST",
       headers: {
@@ -55,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default ServerHome;

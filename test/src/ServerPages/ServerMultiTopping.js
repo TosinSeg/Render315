@@ -37,7 +37,7 @@ const ServerMultiTopping = (props) => {
   }
 
   return (
-    <div>ServerMultiTopping
+    <div>
       <div id="OrderButtonMenu">
         <div id="Sauce">
           <label htmlFor="sauces">Sauce:</label>

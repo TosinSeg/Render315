@@ -8,7 +8,7 @@ const ServerDrink = (props) => {
   }
 
   return (
-    <div>ServerDrink
+    <div>
       <div id="OrderButtonMenu">
         <div id="Drink">
           <label htmlFor="drinks">Drink:</label>

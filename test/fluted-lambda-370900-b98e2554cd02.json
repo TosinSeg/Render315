@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fluted-lambda-370900",
+  "private_key_id": "b98e2554cd02ede5ede740bb68569d599a86324e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCxrsHc4/TfZDzn\noUsjHIEIGKn9QHdViFkCpvEhbTXbQtr3d5e/o8kaLRDHLljtemiHlP+ZJlnGU8Dg\nByEkmkDpZACNu/MZ5snDZvi1e80jzr0O+4i8Cgwc9m8hPruyHGrayP3ey2iri36R\nYOHqbjHGYcty3XspOLSbXPXH1BDt91rDIM9ylxGIxhakISQ/TmGINbqM4PovPQRz\nRg4S3Zh+ZZd8oBxBW3vH8agomBHVLOEoOjrtgQ+Bygc9WbNq7xkXgbTuVUU4pJeF\n1DGISi4LoiWPS75E2fyEinhM1pYyUcwKssI8cBAEg0oGZtfGGmAJQ1fuiWzeve3S\nBrOrMxyHAgMBAAECggEASyYEbC4ldQ3qDHVVWAZINGpqCuhnEE/YhZyhw2dzLcb6\n4Us9bRoShfWlcPiTN+1bpGxKJjXoJk9p9dZOGDL9XTikW02wpbXMg85bRjaULp7T\nqzCLRixhryYzHjZwIAaQ0vPLG52gKV2YLFhzdDki6CqYZ35xBqArEsKgWOHCP0J4\nNdiq3XWdd2tKVCVK2anUnnRuLdC8R9S/R1D1HD+u9PjslVvjeW8eq1evz6bJ01em\nXRzawZ5Gvsa1Be/ODmPR0r8tr4OPYa3VnM5XQw5dUG+KA6nmkv7VojSmN4mNvMk7\nwN7m8a+TOnMVeZYRUctOJ718l8Z0uK72Q78kBvwdQQKBgQDaTMHsqPjJGNioWVdM\n4igM+wgxl2bkddFhYzCq53yueyuA+2QyApNX8VDsRSHuHK1WX0R5o4tb1R6Hvl/n\njiOgy4mA6Spcfxc83aHbi92ap/ifDOGfUqtC+XH1S3JTyIYvRMmyA+sTxGoEQU3E\nxymfBUKcS0JVq9GMmPEPBKPKVwKBgQDQXkZ/IZz/9oYtEtdMR/5H6gaSfPC1pcHM\nJLbdDastig2mI3eSMlhGLFCl8z/RpkV89gnMT+qnAvmZM+YfvavJ9IPYfHvOnN9u\nP+fR+VfBMR2ZBoZ5Cv7b0Tr5402jYwaWdGzqm1tloanjebzH7Y2BdpFmkFDlACp5\nGbTfKwBBUQKBgQDA+zo0TOwiWqStrs1OWl+tmf4UWRPMw5rlzRoo+5ttY9WBoLti\nuoQnKl2vgS4Noaxavr16CuoXtL/YoKOHwFAexdA49edM/c09MXD09SBiqDtR38FV\nZ2+fNYVYo+ndx1dYUic8B9q5DtnqCREG9EoHGk9Ye++YbNxCvrHb5O4m4QKBgQC2\nFy0UPJOvPAjVqvlrOB8HSYSkz3qrw0cw14TWePN2wIZdAfGkWUq7SE7SN1k2JU/k\nfD7jxZMSkI7/S1N3uZE+0+fEcEThskWvWzmDTZtawUlUSVeKwAkooBgh+HoIpqlD\nIktsWofssPJ+UAyhyv82fB9kugl3lkWHvudJf5KhgQKBgQC+VLge7cg2C2UpFOOg\n+plrStYqFz4s0fIE48Lh7shEnjt5fHsqqyEpSUy1XJJJhgopICA7deZyc+LhmSNZ\n3AU9z93hcB+PBif1Y5sN+OVA9EzKDwQSf+Gmzhl5c/zkOTtt/zs0wRqTTqDpY4qk\n1p0i7cTl9LyFp9Agr+QXk1NHOA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-15-pizza-pos@fluted-lambda-370900.iam.gserviceaccount.com",
+  "client_id": "107065396184070017759",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-15-pizza-pos%40fluted-lambda-370900.iam.gserviceaccount.com"
+}
