@@ -13,7 +13,7 @@ const Finishorder = async (e) => {
 }
 
 function Checkout(props) {
-    const [test, setTest] = useState(["Select Payment Type:", "Cash", "Card", "Dining Dollars", "Or: ", "Add another Item", " Cancel Order", "Total Cost: $"]);
+
 
     const Addtoorder = async () => {
         await fetch(`http://localhost:5001/addToOrder`);
@@ -35,7 +35,7 @@ function Checkout(props) {
     useEffect(() => {
         PriceInfo();
     }, [price])
-
+    const [test, setTest] = useState(["Select Payment Type:", "Cash", "Card", "Dining Dollars", "Or: ", "Add another Item", " Cancel Order", "Total Cost: $"]);
     useEffect(() => {
         (async () => {
             console.log(props.lang);
@@ -51,24 +51,24 @@ function Checkout(props) {
         <img alt="Spin N Stone Logo" className="logo1" src={LOGO} />
         <h1 className="pageTitle-checkout">{test[0]}</h1>
         <div className="grid-container-topping3">
-            <button className="grid-item-topping3" onClick={Finishorder}>Cash</button>
-            <button className="grid-item-topping3" onClick={Finishorder}>Card</button>
-            <button className="grid-item-topping3" onClick={Finishorder}>Dining Dollars</button>
+            <button className="grid-item-topping3" onClick={Finishorder}>{test[1]}</button>
+            <button className="grid-item-topping3" onClick={Finishorder}>{test[2]}</button>
+            <button className="grid-item-topping3" onClick={Finishorder}>{test[3]}</button>
         </div>
-        <h1 className="or">Or: </h1>
+        <h1 className="or">{test[4]}</h1>
         <div className="grid-container-checkout">
             <a href="/pizzatype">
-                <button className="grid-item-topping3"> Add another Item</button>
+                <button className="grid-item-topping3">{test[5]}</button>
             </a >
             <a href="/pizzatypeCanceled">
-                <button className="grid-item-topping3" > Cancel Order</button>
+                <button className="grid-item-topping3" >{test[6]}</button>
             </a>
         </div>
 
         <div className="order-container">
             <OrderInformation />
         </div>
-        <p className="priceDisplay">Total Cost: ${price}</p>
+        <p className="priceDisplay">{test[7]}{price}</p>
     </Fragment>);
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from "react";
 import Pizzabuilder from "./pizzabuilder";
+import translateText from "../translate";
 const Red = async (e) => {
     e.preventDefault();
     await fetch(`http://localhost:5001/addSauce/${"Red"}`);
@@ -40,7 +41,7 @@ const UndoCombo = async (e) => {
     await fetch(`http://localhost:5001/comboMeal/${false}`);
     window.location.reload();
 }
-function Sauce() {
+function Sauce(props) {
     const [isLoading, setLoading] = useState(true);
     const [response, setResponse] = useState("");
     const OrderInfo = async () => {
@@ -53,17 +54,31 @@ function Sauce() {
         OrderInfo();
         setLoading(false);
     }, [response])
-    let pizza = <Pizzabuilder />
-    return (<Fragment><h1 className="pageTitle-topping">Select Sauce and Crust:</h1>
+
+
+    const [test, setTest] = useState(["Select Sauce and Crust: ", "Red Sauce", "Regular Crust", "Add a Drink to Your Pizza?", "Zesty Red Sauce", "Cauliflower Crust", "Remove Added Drink", "White Sauce", "Back", "Next", "Your Current Pizza:"]);
+    useEffect(() => {
+        (async () => {
+            console.log(props.lang);
+            let temp = [];
+            for (let i = 0; i < test.length; ++i) {
+                await translateText(test[i], props.lang).then(res => temp.push(res));
+            }
+            setTest(temp);
+        })();
+    }, [props.lang])
+
+    let pizza = <Pizzabuilder lang={props.lang} />
+    return (<Fragment><h1 className="pageTitle-topping">{test[0]}</h1>
         <div className="grid-container-sauces">
 
-            <button className="grid-item-sauce" onClick={Red}>Red Sauce</button>
-            <button className="grid-item-sauce" onClick={Regular}>Regular Crust</button>
-            <button className="grid-item-sauce" onClick={MakeCombo}>Add a Drink to Your Pizza?</button>
-            <button className="grid-item-sauce" onClick={Zestyred}>Zesty Red Sauce</button>
-            <button className="grid-item-sauce" onClick={Cauliflour}>Cauliflower Crust</button>
-            <button className="grid-item-sauce" onClick={UndoCombo}>Remove Added Drink</button>
-            <button className="grid-item-sauce" onClick={White}>White Sauce</button>
+            <button className="grid-item-sauce" onClick={Red}>{test[1]}</button>
+            <button className="grid-item-sauce" onClick={Regular}>{test[2]}</button>
+            <button className="grid-item-sauce" onClick={MakeCombo}>{test[3]}</button>
+            <button className="grid-item-sauce" onClick={Zestyred}>{test[4]}</button>
+            <button className="grid-item-sauce" onClick={Cauliflour}>{test[5]}</button>
+            <button className="grid-item-sauce" onClick={UndoCombo}>{test[6]}</button>
+            <button className="grid-item-sauce" onClick={White}>{test[7]}</button>
 
 
 
@@ -73,14 +88,14 @@ function Sauce() {
         </div>
         <div>
             <a href="/topping">
-                <button className="backButton"> Back</button>
+                <button className="backButton"> {test[8]}</button>
             </a>
 
             <a href="/checkout">
-                <button className="nextButton">Next</button>
+                <button className="nextButton">{test[9]}</button>
             </a>
         </div>
-        <h1 className="pizzaInfoTitle">Your Current Pizza:</h1>
+        <h1 className="pizzaInfoTitle">{test[10]}</h1>
         <p className="pizzaInfo">{response}</p>
         <p className="pizzaBuilder">{pizza}</p>
 
