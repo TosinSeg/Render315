@@ -1,0 +1,21 @@
+Sprint 3 minutes
+
+Scrum 1:
+In our initial sprint meeting, we discussed the main goals for this sprint. Michael and Tripper are going to finish up the Google Maps API, 
+create the Interactive Pizza Builder, and finish the Customer GUI functions. Tosin will work on implementing the OAuth API for verification 
+from the front page and implementing the Google Translate API for the Manager Side. Mark will focus on Front End CSS Styling and finishing up 
+Manager Side functionality. Tuong will focus on implementing the Google Translate API for Server GUI and help Michael implement the Google 
+Translate API for the Customer Side. He will also work with Mark to style the Server Side GUI and finish Server Side Functionality.
+
+Scrum 2:
+In our first scrum meeting, we reviewed the progress that each team member had made. The Customer Side had finished their order tracking, 
+seasonal items, and implementing the Google Maps API. The manager side was working on the OAuth Login Implementation and the Server Side 
+was working on its CSS Style Sheet. Before the Scrum 2 Meeting, we planned to style the main page, finish customer side backend functions, 
+finish the server GUI style sheet, and work on the OAuth Implementation.
+
+Scrum 3:
+For the second scrum meeting, we reviewed the progress that each team member had made and focused on what needed to be done before  
+the third and final scrum meeting. The major points were ironing out bugs and adding final smaller features, design choices (CSS), 
+and finishing API implementation. We agreed that we should get everything done besides the google translate API if possible, 
+as we can work together to finish that as all members needed it. All three views seemed to be nearing completion so we believe we are 
+on track with our plans.
