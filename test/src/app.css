@@ -12,6 +12,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color:rgb(26, 25, 25)
   }
   h1{
     color:rgb(26, 25, 25);
@@ -139,3 +140,4 @@ body {
     background-color: rgb(123, 180, 17);
     
     }
+
